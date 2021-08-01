@@ -16,7 +16,8 @@ pipeline {
 
         stage('Integration Test') {
             steps {
-                mvn 'verify -DskipUnitTests -Parq-wildfly-swarm '
+                mvn 'verify 
+//                 mvn 'verify -DskipUnitTests -Parq-wildfly-swarm '
             }
         }
     }
