@@ -23,7 +23,8 @@ pipeline {
                 }
                 stage('Integration Test') {
                     steps {
-                        mvn 'verify -DskipUnitTests -Parq-wildfly-swarm '
+                        mvn 'verify -DskipUnitTests'
+//                         mvn 'verify -DskipUnitTests -Parq-wildfly-swarm '
                     }
                 }
             }
@@ -35,7 +36,7 @@ pipeline {
             // Archive Unit and integration test results, if any
             junit allowEmptyResults: true,
                     testResults: '**/target/surefire-reports/TEST-*.xml, **/target/failsafe-reports/*.xml'
-            mailIfStatusChanged env.EMAIL_RECIPIENTS
+//             mailIfStatusChanged env.EMAIL_RECIPIENTS
         }
     }
 }
