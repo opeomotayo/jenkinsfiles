@@ -25,7 +25,8 @@ pipeline {
                 stage('Integration Test') {
                     when { expression { isTimeTriggeredBuild() } }
                     steps {
-                        mvn 'verify -DskipUnitTests -Parq-wildfly-swarm '
+                        mvn 'verify -DskipUnitTests'
+//                         mvn 'verify -DskipUnitTests -Parq-wildfly-swarm '
                     }
                 }
             }
